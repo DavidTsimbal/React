@@ -20,6 +20,11 @@ PokemonRow.propTypes = {
 }
 
 function App() {
+
+  const [filter, setFilter] = useState("");
+
+ 
+
   return (
   
       <div
@@ -30,6 +35,12 @@ function App() {
       }}
       >
         <h1 className="title">Pokemon Search</h1>
+        <input 
+          type="text" 
+          placeholder='search' 
+          value={filter}
+          onChange={(evt) => setFilter(evt.target.value)}
+        />
         <table width="100%">
           <thead>
             <tr>
@@ -38,7 +49,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {pokemon.slice(0,20).map((pokemon) => (
+            {  pokemon.filter((pokemon) => pokemon.name.english.toLowerCase().includes(filter.toLowerCase())).map((pokemon) => (
               <PokemonRow pokemon={pokemon} key={pokemon.id}></PokemonRow>
             ))}
           </tbody>
