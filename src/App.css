@@ -18,3 +18,13 @@ input[type="text"]{
   font-size: larger;
   padding: 5px;
 }
+
+.selection{
+  position: absolute;
+  top: 200px;
+  right: 200px;
+}
+
+.selection table{
+  width: 100%;
+}
