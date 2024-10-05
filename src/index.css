@@ -1,67 +1,862 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "font.css";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  *{
+    box-sizing: border-box;
+  }
+  
+  /* ТЭГИ */
+  body{
+  margin: 0px;
+  }
+  
+  header{
+    background-color: black;
+    height: 101.82px;
+    width: 100%;
+    padding-left: 5%;
+    position: fixed;
+    z-index: 2;
+  }
+  
+  nav{
+    display: inline-block;
+    transform: translateY(-45%);
+  }
+  
+  main{
+    padding-top: 101.82px;
+    margin-bottom: 40px;
+  }
+  
+  section{
+    height: 100vh;;
+    position: relative;
+  }
+  
+  footer{
+    color: rgba(255, 255, 255, 0.93);
+    background-color: black;
+    font-family: "Bahnschrift";
+    height: 101.82px;
+    width: 100%;
+    padding-left: 5%;
+    padding-top: 40px;
+  }
+  
+  ul{
+    list-style-type: none;
+    padding: 0px;
+  }
+  
+  li:last-child{
+    margin-right: 0px;
+  }
+  
+  a{
+    text-decoration: none;
+    font-family: "Bahnschrift";
+    
+  }
+  
+  p{
+    font-family: "Montserrat-Regular";
+    font-size: 18px;
+    position: relative;
+  }
+
+  h1{
+    font-family: "Montserrat-Regular";
+  }
+  
+  hr{
+    margin: 0;
+  }
+  
+  /* КЛАССЫ */
+  /* HEADER */
+  .logo{
+    margin-right: 100px;
+    padding-top: 20px;
+    width: 50px;
+    opacity: 0.93;
+  }
+  
+  .menu-li{
+    display: inline-block;
+    margin-right: 100px;
+  }
+  
+  .menu-text{
+    color: rgba(255, 255, 255, 0.93);
+    font-size: 18px;
+  }
+  
+  /* ГЛАВНЫЙ ЭКРАН */
+  
+  .section-city_gradient{
+    height: 100%;
+    padding: 15% 5% 0% 5%;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 1) 100%);
+  }
+
+  .section-city_gradient a{
+    color: rgb(188, 186, 186);
+    font-size: xx-small;
+    position: absolute;
+    right: 5%;
+    top: 3svh;
+  }
+  
+  .definition-1{
+    color: white;
+    font-family: "Montserrat-Regular";
+    margin-top: 0;
+  }
+  
+  .definition-1>span{
+    font-family: "Montserrat-MediumItalic";
+  }
+  
+  .definition-2{
+    color: white;
+    font-family: "Montserrat-Medium";
+  }
+  
+  .definition-2>span{
+    font-family: "Montserrat-SemiBoldItalic";
+  }
+  
+  .definition-3{
+    color: #FFEE07;
+    font-family: "Montserrat-Bold";
+  }
+  
+  .definition-3>span{
+    font-family: "Montserrat-BlackItalic";
+  }
+
+  .defs{
+    font-size: 64px;
+  }
+  
+  /* ЗАЧЕМ */
+  .section-why{
+    color:black;
+  }
+  
+  .paper-gradient{
+    min-height: 100%;
+    width: 100%;
+    
+    position: absolute;
+    
+    background: linear-gradient(55deg, rgba(115, 115, 115, 1),  rgba(255, 241, 117, 1));
+    opacity: 0.05;
+
+    z-index: -1;
+  }
+  
+  .section-why_textblock{
+    display: inline;
+    position: absolute;
+    width: 50%;
+    left: 5%;
+    top: 370px;
+  }
+  
+  .section-why_header{
+    font-family: "Montserrat-Bold";
+    font-size: 50px;
+    position: relative;
+    
+  }
+  
+  .section-why_textblock_paragraphs{
+    position: relative;
+    width: 90%;
+  }
+  
+  .why>span{
+    font-family: "Montserrat-Medium";
+  }
+  
+  .gallery{
+    position: relative;
+    display: inline;
+    top: 100px;
+    left: 55%;
+  }
+  
+  .gallery_vert-pht{
+    width: 9.8%;
+    border-radius: 40px;
+    margin-right: 2.6%;
+    margin-bottom: 2.6%;
+    box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  }
+  
+  .gallery_hr-pht{
+    width: 35%;
+    border-radius: 55px;
+    box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* ДАТА */
+  .section-date{
+    height: 200px;
+    padding-top: 50px;
+  }
+  
+  .section-date_textblock{
+    width: 650px;
+    margin: auto;
+  }
+  
+  .section-date_descriptor{
+    font-family: "Montserrat-ExtraLightItalic";
+    margin: 0px;
+  }
+  
+  .section-date_header{
+    color: rgba(19, 86, 163, 1);
+    font-family: "Montserrat-Black";
+    font-size: 90px;
+    margin: 0px;
+  }
+  
+  /* СОЦСЕТИ */
+  .section-socialmedia{
+    padding-left: 100px;
+    padding-top: 200px;
+  }
+  
+  .section-socialmedia_pht{
+    width: 50%;
+    margin-right: 100px;
+    border-radius: 55px;
+    box-shadow: -4px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  }
+  
+  .section-socialmedia_textblock{
+    display: inline-block;
+    width: 40%;
+    position: relative;
+    bottom: 111px;
+  }
+  
+  .section-socialmedia_textblock h2{
+    font-family: "Montserrat-Bold";
+    font-size: 30px;
+  }
+  
+  .section-socialmedia_textblock li{
+    display: block;
+    font-family: "Montserrat-SemiBold";
+    color: rgba(19, 86, 163, 1);
+    text-decoration: underline;
+    margin-right: 0px;
+    margin-bottom: 5px;
+  }
+
+  .section-socialmedia_textblock div{
+    display: inline;
+  }
+  
+  .section-socialmedia_textblock img{
+    width: 16px;
+    margin-right: 5px;
+  }
+  
+  .section-socialmedia_textblock span{
+    font-family: "Montserrat-Medium";
+  }
+  
+  /* СПОНСОР */
+  .section-sponsor{
+    width: 100%;
+  }
+
+  .sponsor-textblock{
+    width: 200px;
+    display: inline-block;
+    position: absolute;
+    top: 400px;
+    left: 40%; 
+  }
+  
+  .sponsor-textblock h3{
+    font-family: "Montserrat-ExtraLightItalic";
+    margin-bottom: 30px;
+  }
+  
+  .card-fan{
+    width: 450px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    box-shadow: -4px 2px 21px 7px rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 0px;
+    top: 10%;;
+  }
+
+  .lotus-logo{
+    width: 120px;
+  }
+  
+
+
+
+
+@media (max-width: 1440px){
+  header{
+    height: 69.46px;
+  }
+  
+  main{
+    padding-top: 69.46px;
+  }
+
+  .logo{
+    margin-right: 70px;
+    padding-top: 10px;
+    width: 40px;
+  }
+  
+  .menu-li{
+    margin-right: 70px;
+  }
+  
+  .menu-text{
+    font-size: 12px;
+  }
+
+  nav{
+    transform: translateY(-40%);
+  }
+
+  .section-city{
+    height: 900px;
+  }
+
+  .defs{
+    font-size: 48px;
+  }
+
+  .gallery{
+    top: 300px;
+  }
+
+  .section-why_header{
+    font-size: 40px;
+  }
+
+  .section-socialmedia{
+    height: 900px;
+  }
+
+  .sponsor-textblock{
+    left: 26%; 
+  }
+
+  .section-sponsor{
+    height: 900px;
+  }
+
+  .card-fan{
+    width: 400px
+  }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+
+
+@media (max-width: 1024px){
+  header{
+    height: 104.19px;
+  }
+
+  .logo{
+    width: 60px;
+    padding-top: 15px;
+    margin-right: 100px;
+  }
+
+  .menu-li{
+    margin-right: 100px;
+  }
+  
+  .menu-text{
+    font-size: 20px;
+  }
+
+  main{
+    padding-top: 104.19px;
+  }
+
+  section{
+    height: 100svh;
+  }
+
+  .section-city{
+    height: 100svh;
+  }
+
+  .defs{
+    font-size: 70px;
+  }
+
+  .section-why_textblock{
+    display: block;
+    position: unset;
+    width: 90%;
+    padding-left: 5%;
+    padding-top: 10svh;
+    margin-bottom: 5%;
+  }
+
+  .gallery{
+    display: block;
+    position: unset;
+    max-width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .gallery_vert-pht{
+    width: 27%;
+    border-radius: 20px;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  }
+
+  .last-pht{
+    margin-right: 0;
+  }
+  
+  .gallery_hr-pht{
+    width: 91%;
+    border-radius: 27px;
+    box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  }
+
+  .section-date{
+    padding-left: 5%;
+    padding-top: 40px;
+  }
+
+  .section-date_textblock{
+    margin: auto;
+  }
+
+  .section-socialmedia{
+    height: 45svh;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10svh;
+  }
+
+  .section-socialmedia_pht{
+    display: none;
+  }
+
+  .section-socialmedia_textblock{
+    display: block;
+    position: unset;
+    width: 90%;
+  }
+
+  .section-socialmedia_textblock li{
+    margin-bottom: 10px;
+  }
+  
+  .section-socialmedia_textblock img{
+    width: 25px;
+    margin-right: 10px;
+  }
 }
 
-body {
+
+
+
+@media (max-width: 768px){
+  header{
+    height: 69.46px;
+  }
+  
+  main{
+    padding-top: 69.46px;
+  }
+
+  .logo{
+    margin-right: 50px;
+    padding-top: 10px;
+    width: 40px;
+  }
+  
+  .menu-li{
+    margin-right: 50px;
+  }
+  
+  .menu-text{
+    font-size: 14px;
+  }
+
+  nav{
+    transform: translateY(-35%);
+  }
+
+  .section-city_gradient{
+    padding-top: 12svh;
+  }
+
+  .defs{
+    font-size: 36px;
+  }
+
+  .section-why{
+    height: auto;
+    padding-bottom: 10svh;
+  }
+
+  .section-why_textblock{
+    padding-top: 5svh;
+    margin-bottom: 3svh;
+  }
+
+  .section-why_header{
+    font-size: 24px;
+  }
+
+  .why{
+    font-size: 12px;
+  }
+
+  .section-date{
+    height: auto;
+    padding-top: 2%;
+  }
+
+  .section-date_textblock{
+    max-width: 100%;
+  }
+
+  .section-date_header{
+    font-size: 50px;
+  }
+
+  .section-socialmedia_textblock h2{
+    font-size: 18px;
+  }
+
+  .section-socialmedia_textblock p{
+    font-size: 12px;
+    margin-bottom: 10%;
+  }
+
+  .section-socialmedia_textblock li{
+    display: inline;
+    font-size: 12px;
+    margin-right: 5%;
+  }
+
+  .section-socialmedia_textblock img{
+    width: 30px;
+  }
+
+  .section-socialmedia_textblock div{
+    display: none;
+  }
+
+  .section-sponsor{
+    min-height: 50svh;
+    max-height: 70svh;
+  }
+
+  .sponsor-textblock{
+    width: 30%;
+    top: 35%;
+    left: 5%; 
+  }
+  
+  .sponsor-textblock h3{
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .card-fan{
+    max-width: 50%;
+    border-top-left-radius: 27px;
+    border-bottom-left-radius: 27px;
+  }
+
+  .lotus-logo{
+    width: 60px;
+  }
+}
+
+
+
+@media (max-width: 380px){
+  .defs{
+    font-size: 32px;
+  }
+}
+
+
+
+
+
+
+
+/*БИЛЕТЫ*/
+.tickets-template{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.tickets{
+  min-height: 100svh;
+}
+
+.paddings{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
+}
+
+#tickets-counter{
+  font-size: 12px;
+}
+
+.ticket-container{
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  /*grid-template-rows: 1fr 1fr;*/
+
+  background-color: white;
+  box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+
+  padding: 10px 15px 15px 15px;
+  margin-bottom: 20px;
+
+  max-width: 500px;
+}
+/*
+.ticket-info{
+
+}
+*/
+.ticket-info h2{
+  font-size: 20px;
+  font-family: 'Montserrat-Bold';
   margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.ticket-info p{
+  font-family: 'Montserrat-Regular';
+  font-size: 10px;
+  margin-top: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.ticket-price{
+  font-family: 'Montserrat-Regular';
+  font-size: 24px;
+  display: inline-block;
+
+  /* margin-right: 20%; */
+  margin-bottom: 15px;
+}
+
+.pay-button{
+  font-family: 'Montserrat-Regular';
+  font-size: 12px;
+
+  color: white;
+  background-color: black;
+
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition-duration: 0.4s;
+
+  outline: none;
+  border: none;
+  border-radius: 12px;
+
+  height: 40px;
+  width: 120px;
+
+  margin-bottom: 30px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #f9f9f9;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+.pay-button:hover{
+  transform: scale(1.05);
+}
+
+.grid-span{
+  grid-column: span 2;
+}
+
+#plus-button{
+  font-family: 'Montserrat-Regular';
+  font-size: 24px;
+
+  color: white;
+  background-color: #bbbbbb;
+
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+  outline: none;
+  border: none;
+  border-radius: 20px;
+
+  height: 40px;
+  width: 40px;
+
+  margin-bottom: 20px;
+}
+
+#plus-button:hover{
+  transform: scale(1.05);
+}
+
+.close-button{
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  width: 10px;
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+  padding: 0;
+}
+
+.close-button:hover{
+  cursor: pointer;
+}
+
+input[type=text], input[type=email]{
+  color: #afafaf;
+  font-family: 'Montserrat-Regular';
+
+  border-width: 1px;
+  border-color: #afafaf;
+  border-radius: 10px;
+  border-style: solid;
+
+  height: 40px;
+
+  padding-left: 15px;
+
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+input[type=text]:focus, input[type=email]:focus{
+  color: black;
+}
+
+label{
+  font-family: 'Montserrat-Regular';
+}
+
+.contest h4{
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0px 0px 5px 0px;
+}
+
+.contest p{
+  font-size: 10px;
+  color: red;
+  margin: 0px 0px 15px 0px;
+}
+
+#breakline{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.total-container{
+  background-color: white;
+  box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+
+  padding: 10px 15px 20px 25px;
+  margin-bottom: 20px;
+
+  width: 300px;
+  height: 450px;
+}
+
+.total-container h2{
+  font-family: 'Montserrat-Regular';
+  font-weight: 400;
+  /* text-decoration: underline; */
+  margin-bottom: 15px;
+}
+
+.total-container h3{
+  font-family: 'Montserrat-Regular';
+  font-weight: 400;
+  /* text-decoration: underline; */
+  margin-bottom: 15px;
+}
+
+#total{
+  display: block;
+}
+
+.total-container h1{
+  font-weight: 400;
+}
+
+.bottom-margin{
+  margin-bottom: 15px;
+}
+
+#tax-info{
+  font-size: 10px;
+  font-family: 'Bahnschrift';
+  opacity: 0.3;
+}
+
+.come-to-email{
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.soldout{
+  color: #afafaf;
+  background-color: white;
+
+  width: 100%;
+  height: 100svh;
+  align-content: center;
+  text-align: center;
+
+  font-size: 60px;
+  font-family: 'Montserrat-Light';
+}
+
+
+
+
+
+@media (max-width: 768px){
+  .tickets-template{
+    grid-template-columns: 1fr;
   }
 }
