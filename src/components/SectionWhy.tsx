@@ -1,8 +1,8 @@
 import React from "react";
-import nearRedSquare from "../public/NearRedSquare.JPG";
-import Slava from "../public/Slava.jpg";
-import Cardists from "../public/Cardists.jpg";
-import Vertigos from "../public/Vertigos.jpg";
+import nearRedSquare from "../../public/NearRedSquare.JPG";
+import Slava from "../../public/Slava.jpg";
+import Cardists from "../../public/Cardists.jpg";
+import Vertigos from "../../public/Vertigos.jpg";
 
 function SectionWhy(){
     return(

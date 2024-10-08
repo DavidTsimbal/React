@@ -1,5 +1,5 @@
 import React from "react";
-import cityIMG from "../public/RIAnewsPhotoDark.png";
+import cityIMG from "/RIAnewsPhotoDark.png";
 
 function SectionCity(){
     return(

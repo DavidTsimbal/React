@@ -1,6 +1,6 @@
 import React from "react";
-import lotusLogo from "../public/LotusInHandLogoBlack.png";
-import fan from "../public/FanInTheAir.JPG";
+import lotusLogo from "/LotusInHandLogoBlack.png";
+import fan from "/FanInTheAir.JPG";
 
 function SectionSponsor(){
     return(

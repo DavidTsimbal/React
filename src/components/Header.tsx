@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../public/WhiteLogoTransparentBG tight.svg";
+import logo from "/WhiteLogoTransparentBG tight.svg";
 
 function Header(){
     return(

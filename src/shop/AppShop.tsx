@@ -1,11 +1,10 @@
 import { createElement, useState } from 'react';
 import { useEffect } from 'react';
-import { createRoot } from 'react-dom/client'
 import React from 'react';
-import Header from "../../components/Header.tsx";
-import Footer from "../../components/Footer.tsx";
-import Ticket from "./Ticket.tsx";
-import Total from "./Total.tsx";
+import Header from "../components/Header.tsx";
+import Footer from "../components/Footer.tsx";
+import Ticket from "./components/Ticket.tsx";
+import Total from "./components/Total.tsx";
 
 
 function App() {
@@ -14,76 +13,75 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [totalQuantity, setTotalQuantity] = useState(52);
+  const [ticketList, setTicketList] = useState([1]);
+
+  useEffect(() => {
+
+    console.log('ticketList:', ticketList);
+    console.log("selectedQuantity:", selectedQuantity);
+    console.log("totalPrice", totalPrice);
+
+  },[ticketList, selectedQuantity, totalPrice]);
   
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
   async function LoadHandler(){
-  
-    const LoadRequest = new Request("https://veyer-conf.ru/shop-info.php", { method: 'GET', });
+    if(!isLoaded){
+      const LoadRequest = new Request("https://veyer-conf.ru/shop-info.php", { method: 'GET', });
+      
+      const response = await fetch(LoadRequest);
+      const result = await response.json();
+      console.log("Success:", result);
     
-    const response = await fetch(LoadRequest);
-    const result = await response.json();
-    console.log("Success:", result);
-  
-    setTicketPrice(result["price"]);
-    setTotalPrice(result["price"]);
-    setTotalQuantity(result["quantity"]);
-  
+      setTicketPrice(result["price"]);
+      setTotalPrice(result["price"]);
+      setTotalQuantity(result["quantity"]);
+      
+      setIsLoaded(true);
+    }
   }
 
 
-  const closeButtons = document.querySelectorAll(".close-button");
 
-  function delTicket(e){
+  function delTicket(id: number){
 
-    const element = e.target;
-    element.parentNode.parentNode.parentNode.parentNode.remove();
-
-    const newQuantity = selectedQuantity - 1;
-    setSelectedQuantity(newQuantity);
-
-    const newTotalPrice = selectedQuantity * ticketPrice;
-    setTotalPrice(newTotalPrice);
-
-    const totalPriceRoot = createRoot(document.querySelector(".total-container h1") as HTMLElement);
-    totalPriceRoot.render(newTotalPrice);
+    if(selectedQuantity > 0){
+      
+      setTicketList(ticketList.filter((item) => item !== id));
+  
+      console.log("deleted ticket id:", id);
+  
+      const newQuantity = selectedQuantity - 1;
+      setSelectedQuantity(newQuantity);
+  
+      const newTotalPrice = selectedQuantity * ticketPrice;
+      setTotalPrice(newTotalPrice); 
     
+    }
 
   }
 
-  closeButtons.forEach(function (elem) {
-    elem.addEventListener("click", delTicket);
-  });
 
-
-
-  const plusButton = document.getElementById("plus-button");
-  let ticketsList = document.getElementById("tickets-list");
-  let idcounter = 1;
+  const [idcounter, setIdcounter] = useState(1);
 
   function addTicket(){
 
-    idcounter++;
-    // const newTicket = createElement("Ticket", {ticketPrice: ticketPrice, idcounter: idcounter});
-    if(!document.getElementById(`${idcounter}`)){
-      const d = document.createElement("div");
-      d.id = `${idcounter}`;
-      ticketsList?.appendChild(d);
-    }
-    
-    
-    // const newQuantity = selectedQuantity + 1;
-    setSelectedQuantity(selectedQuantity + 1);
-    
-    // const newTotalPrice = selectedQuantity * ticketPrice;
-    setTotalPrice(selectedQuantity * ticketPrice);
-    
-    const newTicketRoot = createRoot(document.getElementById(`${idcounter}`) as HTMLElement);
-    newTicketRoot.render(<Ticket ticketPrice={ticketPrice} idcounter={idcounter}/>);
-    
-    // const totalPriceRoot = createRoot(document.querySelector(".total-container h1") as HTMLElement);
-    // totalPriceRoot.render(newTotalPrice);
-  }
+    if(ticketList.length < totalQuantity){
 
-  plusButton?.addEventListener("click", addTicket);
+      const newTicketId = idcounter + 1;
+      setIdcounter(idcounter + 1);
+      
+      setTicketList(ticketList.concat([newTicketId]));
+  
+      const newQuantity = selectedQuantity + 1;
+      setSelectedQuantity(newQuantity);
+      
+      const newTotalPrice = selectedQuantity * ticketPrice;
+      setTotalPrice(newTotalPrice);
+    }
+
+  }
 
 
   return (
@@ -108,29 +106,16 @@ function App() {
           <div>
               
               <div id="tickets-list">
-                
-                <div id="1">
-                  <Ticket ticketPrice={ticketPrice} idcounter={idcounter}></Ticket>
-                </div>
+                  {ticketList.map((id) => (
+                    <Ticket id={id} ticketPrice={ticketPrice} idcounter={id} key={id} delTicket={delTicket}></Ticket>
+                  ))}
               </div>
   
-            <button id="plus-button" form="">+</button>
+            <button id="plus-button" form="" onClick={() => addTicket()}>+</button>
   
           </div>
   
-          <div className="total-container">
-            <h2>Данные покупателя:</h2>
-            <input type="text" placeholder="ИМЯ" name="customer_name" id="customer_name" required />
-            <input type="text" placeholder="ФАМИЛИЯ" name="customer_surname" id="customer_surname" required />
-            <input type="email" placeholder="EMAIL" name="customer_email" id="customer_email" required />
-            <h3>всего к оплате:</h3>
-            <hr></hr>
-            <h1>{totalPrice}</h1>
-            <hr className="bottom-margin"></hr>
-            <a href="precheckout.html"><button className="pay-button" type="submit" form="tickets-form">ОПЛАТИТЬ</button></a>
-
-            <p className="come-to-email">*билеты придут на вашу почту</p>
-        </div>
+          <Total totalPrice={selectedQuantity * ticketPrice}></Total>
           
         </form>
 

@@ -1,8 +1,8 @@
 import React from "react";
-import Misha from "../public/Misha.JPG";
-import vk from "../public/icn/vk.png";
-import telegram from "../public/icn/telegram.png";
-import instagram from "../public/icn/instagram.png";
+import Misha from "/Misha.JPG";
+import vk from "/icn/vk.png";
+import telegram from "/icn/telegram.png";
+import instagram from "/icn/instagram.png";
 
 function SectionSM(){
     return(
