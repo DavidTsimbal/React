@@ -72,6 +72,28 @@
   hr{
     margin: 0;
   }
+
+  button {
+    font-family: 'Montserrat-Regular';
+    font-size: 12px;
+  
+    color: white;
+    background-color: black;
+  
+    cursor: pointer;
+    transition-duration: 0.4s;
+  
+    outline: none;
+    border: none;
+    border-radius: 12px;
+  }
+  
+  
+  button:hover{
+    transform: scale(1.05);
+  }
+
+
   
   /* КЛАССЫ */
   /* HEADER */
@@ -676,27 +698,10 @@
 }
 
 .pay-button{
-  font-family: 'Montserrat-Regular';
-  font-size: 12px;
-
-  color: white;
-  background-color: black;
-
-  cursor: pointer;
-  transition-duration: 0.4s;
-
-  outline: none;
-  border: none;
-  border-radius: 12px;
-
   height: 40px;
   width: 120px;
 
   margin-bottom: 30px;
-}
-
-.pay-button:hover{
-  transform: scale(1.05);
 }
 
 .grid-span{
@@ -723,10 +728,6 @@
   margin-bottom: 20px;
 }
 
-#plus-button:hover{
-  transform: scale(1.05);
-}
-
 .close-button{
   outline: none;
   border: none;
@@ -739,10 +740,6 @@
   right: 20px;
 
   padding: 0;
-}
-
-.close-button:hover{
-  cursor: pointer;
 }
 
 input[type=text], input[type=email]{
@@ -858,4 +855,70 @@ label{
   .tickets-template{
     grid-template-columns: 1fr;
   }
+}
+
+
+
+
+/* ЛОГИН, РЕГИСТРАЦИЯ */
+#login-signup-page{
+  text-align: center;
+  min-height: 100svh;
+  padding-top: 25svh;
+}
+
+#login-signup-page img{
+  width: 100px;
+}
+
+#login-form{
+  display: inline-block;
+
+  background-color: white;
+  box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+
+  text-align: center;
+
+  padding: 20px 0px 30px 0px;
+
+  width: 600px;
+}
+
+#login-signup-link{
+  font-size:x-small;
+  color: blue;
+  text-decoration: underline;
+}
+
+#login-button{
+  height: 40px;
+  width: 120px;
+
+  margin-bottom: 10px;
+}
+
+.input-fields{
+  
+}
+
+#signup-button{
+  height: 40px;
+  width: 200px;
+
+  margin-bottom: 5px;
+}
+
+#signup-form{
+  display: inline-block;
+
+  background-color: white;
+  box-shadow: 0px 2px 21px 7px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+
+  text-align: center;
+
+  padding: 20px 0px 30px 0px;
+
+  width: 600px;
 }

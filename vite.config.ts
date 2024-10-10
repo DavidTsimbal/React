@@ -16,6 +16,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         shop: resolve(__dirname, 'src', 'shop', 'index.html'),
+        login: resolve(__dirname, 'src', 'login', 'index.html'),
       }
     }
   }
