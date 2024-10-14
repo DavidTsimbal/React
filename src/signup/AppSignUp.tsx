@@ -10,18 +10,24 @@ function App() {
 
   const [message, setMessage] = useState('');
 
-  const formEL = document.querySelector('form');
-
-  formEL?.addEventListener('submit', event => {
+  
+  function submitHanler(event){
     event.preventDefault();
-
+    
+    const formEL = document.querySelector('form');
     const formData = new FormData(formEL);
     const data = Object.fromEntries(formData);
 
+    console.log(data);
+
     fetch("https://veyer-conf.ru/signup.php", { 
       method: 'POST',
+      mode: 'cors',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Headers": "*",
+        'Access-Control-Allow-Methods': 'POST',
+        "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify(data)
     }).then(res => res.json())
@@ -29,14 +35,14 @@ function App() {
         setMessage(data['message']);
         console.log(data);
       });
-  });
+  }
 
 
   return (
   
     <div>
       <div id="login-signup-page">
-        <form id="signup-form" action="" method="post">
+        <form id="signup-form" onSubmit={(e) => submitHanler(e)}>
 
           <img src={logo} alt="" />
 
