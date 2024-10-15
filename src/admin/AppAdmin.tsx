@@ -3,16 +3,16 @@ import { useEffect } from 'react';
 import React from 'react';
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
-import { string } from 'prop-types';
-import { table } from 'console';
+import Table from "./components/Table.tsx"
 
 
 function App() {
   
   const [data, setData] = useState();
+  const [index, setIndex] = useState([]);
   const [tables, setTables] = useState(['']);
   const [selectedTable, setSelectedTable] = useState('');
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState('');
   
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -44,36 +44,8 @@ function App() {
     setSelectedTable(event.target.value);
   }
 
-  function nullCheck(variable){
-    if(variable != (null || undefined)){
-      return variable;
-    }
-    else{
-      return '';
-    }
-  }
-
- function mapTable(data){
-    if(data){
-      return (
-        <table>
-        <thead>
-                {Object.keys(data[selectedTable][0]).map(key => (
-                  <th>{key}</th>
-                ))}
-        </thead>
-        <tbody>
-                {data[selectedTable].map(row => (
-                  <tr>
-                    {Object.keys(row).map(key => (
-                      <td><input type="text" name={row[key]} id={row[key]} value={row[key]} /></td>
-                    ))}
-                  </tr>
-                ))}
-        </tbody>
-        </table>
-      );
-    }
+  function fieldChangeHandle(event){
+    
   }
   
 
@@ -116,7 +88,7 @@ function App() {
             ))}
           </div>
           
-          {mapTable(data)}
+          <Table data={data} selectedTable={selectedTable} filter={filter}></Table>
 
       </div>
     </main>
