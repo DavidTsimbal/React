@@ -16,12 +16,15 @@
     height: 101.82px;
     width: 100%;
     padding-left: 5%;
+    padding-right: 5%;
     position: fixed;
     z-index: 2;
   }
   
   nav{
+    position: relative;
     display: inline-block;
+    
     transform: translateY(-45%);
   }
   
@@ -45,6 +48,7 @@
   }
   
   ul{
+    position: relative;
     list-style-type: none;
     padding: 0px;
   }
@@ -112,6 +116,18 @@
   .menu-text{
     color: rgba(255, 255, 255, 0.93);
     font-size: 18px;
+  }
+
+  #profile-container{
+    position: absolute;
+    right: 0;
+    top: 30%;
+  }
+
+  .profile-icn{
+    transform: translateY(20%);
+    margin-right: 10px;
+    opacity: 0.93;
   }
   
   /* ГЛАВНЫЙ ЭКРАН */
@@ -959,7 +975,18 @@ label{
 }
 
 table{
+  position: relative;
   width: 100%;
+}
+
+thead{
+  /* position: fixed; */
+}
+
+.scroll{
+  height: 533px;
+  overflow: auto;
+
   margin-bottom: 20px;
 }
 
