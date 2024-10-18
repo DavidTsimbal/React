@@ -18,6 +18,8 @@ export default defineConfig({
         shop: resolve(__dirname, 'src', 'shop', 'index.html'),
         login: resolve(__dirname, 'src', 'login', 'index.html'),
         signup: resolve(__dirname, 'src', 'signup', 'index.html'),
+        admin: resolve(__dirname, 'src', 'admin', 'index.html'),
+        profile: resolve(__dirname, 'src', 'profile', 'index.html'),
       }
     }
   }
